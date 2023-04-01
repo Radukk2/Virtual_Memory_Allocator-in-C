@@ -100,13 +100,13 @@ node* remove_node(list_t* list, unsigned int poz)
 void free_function(list_t** list)
 {
 	node* curent = (*list)->head;
-	while(curent->next) {
+	while(curent) {
 		node* aux = curent->next;
 		free(curent->data);
 		free(curent);
 		curent = aux;
 	}
-	free(list);
+	free(*list);
 	list = NULL;
 }
 arena_t *alloc_arena(const uint64_t size)
@@ -119,8 +119,11 @@ arena_t *alloc_arena(const uint64_t size)
 
 void dealloc_arena(arena_t *arena)
 {
-	if (((block_t *)arena->alloc_list)->miniblock_list)
-		free_function(((block_t *)arena->alloc_list)->miniblock_list);
+	node *curent = ((list_t *)arena->alloc_list)->head;
+	while(curent){
+		free_function((list_t**)((block_t*)curent->data)->miniblock_list);
+		curent = curent->next;
+	}
 	if (arena->alloc_list)
 		free_function(&arena->alloc_list);
 	free(arena);
@@ -251,8 +254,9 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 	}
 	block_t * block = block_finder(arena, address);
 	if (block->size < size) {
-		printf("Warning: size was bigger than the block size. Reading %d characters.\n", block->size);
-		return;
+		printf("Warning: size was bigger than the block size.");
+		printf("Reading %ld characters.\n", block->size);
+		size = block->size;
 	}
 }
 
@@ -263,15 +267,65 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 		printf("Invalid address for write.\n");
 		return;
 	}
-	block_t * block = block_finder(arena, address);
+	block_t *block = block_finder(arena, address);
 	if (block->size < size) {
-		printf("Warning: size was bigger than the block size. Writing %d characters.\n", block->size);
-		return;
+		printf("Warning: size was bigger than the block size.");
+		printf("Writing %ld characters.\n", block->size);
 	}
 }
 
+char* permissions(unsigned int number)
+{
+	if (number == 0)
+		return "---";
+	if (number == 1)
+		return "--X";
+	if (number == 2)
+		return "-W-";
+	if (number == 3)
+		return "-WX";
+	if (number == 4)
+		return "R--";
+	if (number == 5)
+		return "R-X";
+	if (number == 6)
+		return "RW-";
+	if (number == 7)
+		return "RWX";
+}
 void pmap(const arena_t *arena)
 {
+	node *curr = arena->alloc_list->head;
+	long long mem = 0;
+	while (curr) {
+		mem += ((block_t *)curr)->size;
+		curr = curr->next;
+	}
+	printf("Total memory: %ld\n", arena->arena_size);
+	printf("Free memory : %llu\n", arena->arena_size - mem);
+	while(curr) {
+		int i = 1;
+		if (i == 1)
+		printf("\n");
+		printf("Block %d begin\n", i);
+		long long start = ((block_t *)curr)->start_address;
+		long long fin = start + ((block_t *)curr)->size;
+		printf("Zone: %llx - %llx", start, fin);
+		node *mini = ((list_t *)((block_t *)curr)->miniblock_list)->head;
+		while(mini) {
+			int j = 1;
+			long long addres1 = ((miniblock_t *)mini)->start_address;
+			long long addres2 = addres1 + ((miniblock_t *)mini)->size;
+			printf("Miniblock %d:\t\t%llx\t\t-\t\t%llx", i, addres1, addres2);
+			char *perms = permissions(((miniblock_t *)mini)->perm);
+			printf("\t\t| %s", perms);
+			mini = mini->next;
+			j++;
+		}
+		printf("Block %d end\n", i);
+		curr = curr->next;
+		i++;
+	}
 
 }
 
