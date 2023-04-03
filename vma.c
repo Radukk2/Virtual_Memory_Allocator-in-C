@@ -56,12 +56,13 @@ void add_node(list_t* list, unsigned int poz, const void* new_data)
 		list->size++;
 		return;
 	}
-	node* curent = get_node(list, poz);
+	node* curent = get_node(list, poz - 1);
     new_node->prev = curent;
     new_node->next = curent->next;
     curent->next->prev = new_node;
     curent->next = new_node;
 	list->size++;
+	printf("%d", list->size);
 }
 
 node* remove_node(list_t* list, unsigned int poz)
@@ -108,6 +109,16 @@ void free_function(list_t** list)
 	free(*list);
 	list = NULL;
 }
+
+void free_rw_buffer (block_t *block)
+{
+	node* curent = ((list_t *)block->miniblock_list)->head;
+	while (curent){
+		free(((miniblock_t *)curent->data)->rw_buffer);
+		curent = curent->next;
+	}
+}
+
 arena_t *alloc_arena(const uint64_t size)
 {
 	arena_t* new_arena = malloc(sizeof(arena_t));
@@ -120,28 +131,36 @@ void dealloc_arena(arena_t *arena)
 {
 	node *curent = ((list_t *)arena->alloc_list)->head;
 	while(curent){
-		free_function((list_t**)((block_t*)curent->data)->miniblock_list);
+		free_rw_buffer((block_t *)curent->data);
+		free_function((list_t**)&((block_t*)curent->data)->miniblock_list);
 		curent = curent->next;
 	}
 	if (arena->alloc_list)
 		free_function(&arena->alloc_list);
 	free(arena);
 }
+
 int intersection(arena_t *arena, block_t *block)
 {
 	node *curent = arena->alloc_list->head;
-	int dimensiune = (int)block->start_address + (int)block->size;
+	int dimensiune = block->start_address + block->size;
 	int limita_stanga = 0;
 	int limita_dreapta = ((block_t *)curent->data)->start_address;
 	int contor = 0;
 	while(curent) {
-		if (dimensiune > limita_stanga && dimensiune < limita_dreapta)
+		if (dimensiune >= limita_stanga && dimensiune <= limita_dreapta) {
+			if (block->start_address < limita_stanga)
+				return -1;
 			return contor;
+		}
 		limita_stanga = ((block_t *)curent->data)->start_address + ((block_t *)curent->data)->size;
 		if (curent->next == NULL) {
 			limita_dreapta = arena->arena_size;
-			if (dimensiune > limita_stanga && dimensiune < limita_dreapta)
+			if (dimensiune >= limita_stanga && dimensiune <= limita_dreapta) {
+				if (block->start_address < limita_stanga)
+					return -1;
 				return contor + 1;
+			}
 		} else
 			limita_dreapta = ((block_t *)curent->next->data)->start_address;
 		curent = curent->next;
@@ -163,14 +182,17 @@ miniblock_t * creator(block_t * parent)
 void merger(block_t* first, block_t* last)
 {
 	block_t *merged = malloc(sizeof(block_t));
+	merged->miniblock_list = create_list(sizeof(miniblock_t));
 	merged->start_address = first->start_address;
 	merged->size = first->size + last->size;
 	((list_t *)(first->miniblock_list))->tail->next = ((list_t *)(last->miniblock_list))->head;
 	((list_t *)(last->miniblock_list))->head->prev = ((list_t *)(last->miniblock_list))->tail;
 	((list_t *)(merged->miniblock_list))->head = ((list_t *)(first->miniblock_list))->head;
 	((list_t *)(merged->miniblock_list))->tail = ((list_t *)(last->miniblock_list))->tail;
-	free_function(first->miniblock_list);
-	free_function(last->miniblock_list);
+	free_rw_buffer(first);
+	free_rw_buffer(last);
+	free_function((list_t **)&first->miniblock_list);
+	free_function((list_t **)&last->miniblock_list);
 	free(first);
 	free(last);
 }
@@ -191,18 +213,22 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 	block->miniblock_list = create_list(sizeof(miniblock_t));
 	miniblock_t *mini = creator(block);
 	add_node((list_t *)block->miniblock_list, 0, mini);
+	free(mini);
 	if (arena->alloc_list->size == 0) {
 		add_node(arena->alloc_list, 0, block);
+		free(block);
 		return;
 	}
 	if (intersection(arena, block) == -1) {
 		printf("This zone was already allocated.\n");
-		free_function(block->miniblock_list);
+		free_rw_buffer(block);
+		free_function((list_t**)&block->miniblock_list);
 		free(block);
 		return;
 	}
 	int poz = intersection(arena, block);
 	add_node(arena->alloc_list, poz, block);
+	free(block);
 	node* curent = get_node(arena->alloc_list, poz);
 	long long right, left;
 	if (curent->next)
@@ -210,28 +236,13 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 	else
 		right = arena->arena_size;
 	if (curent->prev)
-		left = ((block_t *)curent->prev->data)->start_address +
-							((block_t *)curent->prev->data)->size;
+		left = ((block_t *)curent->prev->data)->start_address +((block_t *)curent->prev->data)->size;
 	else
 		left = 0;
-	if (curent->prev == NULL) {
-		if (right - 1 == ((block_t *)curent->data)->size + ((block_t *)curent->data)->start_address) {
-			merger((block_t *)curent, (block_t *)curent->next);
-			return;
-		}
-		return;
-	}
-	if (curent->next == NULL) { 
-		if (left + 1 == ((block_t *)curent->data)->start_address) {
-			merger((block_t *)curent->prev, (block_t *)curent);
-			return;
-		}
-		return;
-	}
-	if (right - 1 == ((block_t *)curent->data)->size + ((block_t *)curent->data)->start_address)
-		merger((block_t *)curent, (block_t *)curent->next);
-	if (left + 1 == ((block_t *)curent->data)->start_address)
-		merger((block_t *)curent->prev, (block_t *)curent);
+	if (right == ((block_t *)curent->data)->size + ((block_t *)curent->data)->start_address)
+		merger((block_t *)curent->data, (block_t *)curent->next->data);
+	if (left  == ((block_t *)curent->data)->start_address)
+		merger(((block_t *)curent->prev->data), (block_t *)curent->data);
 }
 
 block_t *block_finder(arena_t *arena, uint64_t address)
@@ -265,21 +276,56 @@ void free_block(arena_t *arena, const uint64_t address)
 		curr = curr->next;
 		pos++;
 	}
+	int block_poz = intersection(arena, block);
 	if (counter == -1) {
 		printf("Invalid address for free.\n");
 		return;
 	}
+	if (!curr->next && !curr->prev) {
+		node *nod_mini = remove_node((list_t *)block->miniblock_list, pos);
+		free(nod_mini->data);
+		free(nod_mini);
+		node *nod = nod = remove_node(arena->alloc_list, block_poz);
+	}
 	if (!curr->next) {
 		block->size -= counter;
-		remove_node((list_t *)block->miniblock_list, pos);
+		node * nod = remove_node((list_t *)block->miniblock_list, pos);
+		free(nod->data);
+		free(nod);
 		return;
 	}
 	if (!curr->prev) {
 		block->start_address += counter;
-		remove_node((list_t *)block->miniblock_list, pos);
+		node * nod = remove_node((list_t *)block->miniblock_list, pos);
+		free(nod->data);
+		free(nod);
 		return;
 	}
-}
+	block_t *last_block = malloc(sizeof(block_t));
+	last_block->start_address = block->start_address + counter;
+	last_block->size = block->size;
+	last_block->miniblock_list = create_list(sizeof(miniblock_t));
+	node *temp = curr->next;
+	int i = 0;
+	while (temp){
+		add_node((list_t *)last_block->miniblock_list, i, temp->data);
+		free(temp->data);
+		i++;
+		temp = temp->next;
+	}
+	block_t *first_block = malloc(sizeof(block_t));
+	first_block->start_address = block->start_address;
+	first_block->size = block->start_address + counter;
+	first_block->miniblock_list = create_list(sizeof(miniblock_t));
+	temp = curr->next;
+	while (temp) {
+		add_node((list_t *)first_block->miniblock_list, 0, temp->data);
+		free(temp->data);
+		temp = temp->prev;
+	}
+	free_function(block->miniblock_list);
+	free(block);
+}	
 
 void read(arena_t *arena, uint64_t address, uint64_t size)
 {
@@ -329,6 +375,7 @@ char* permissions(unsigned int number)
 	if (number == 7)
 		return "RWX";
 }
+
 void pmap(const arena_t *arena)
 {
 	node *curr = arena->alloc_list->head;
@@ -341,8 +388,8 @@ void pmap(const arena_t *arena)
 	}
 	int i = 1;
 	curr = arena->alloc_list->head;
-	printf("Total memory: %lX\n", arena->arena_size);
-	printf("Free memory : %llX\n", arena->arena_size - mem);
+	printf("Total memory: %lX bytes\n", arena->arena_size);
+	printf("Free memory : %llX bytes\n", arena->arena_size - mem);
 	printf("Number of allocated blocks: %d\n", arena->alloc_list->size);
 	printf("Number of allocated miniblocks: %d\n", mini_nr);
 	while(curr) {
@@ -363,7 +410,7 @@ void pmap(const arena_t *arena)
 			mini = mini->next;
 			j++;
 		}
-		printf("Block %d end\n", i);
+		printf("Block %d end\n\n", i);
 		curr = curr->next;
 		i++;
 	}
