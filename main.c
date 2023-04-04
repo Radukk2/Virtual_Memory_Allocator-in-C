@@ -29,7 +29,7 @@ int main(void)
             invalid_command = 1;
         }
         if (strncmp(comanda, "FREE_BLOCK", 10) == 0) {
-            int add = atoi(strtok(comanda, "FREE_BlOCK \n"));
+            int add = atoi(strtok(comanda, "FREE_BLOCK \n"));
             free_block(new_arena, add);
             invalid_command = 1;
         }
