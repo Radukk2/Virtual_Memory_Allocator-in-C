@@ -525,11 +525,11 @@ int verif_str(char str[10])
 		return 4;
 	if (strcmp(str, "PROT_WRITE") == 0)
 		return 2;
-	if (strcmp(str, "PROT_WRITE") == 0)
+	if (strcmp(str, "PROT_EXEC") == 0)
 		return 1;
 }
 
-int interpretare_string(char string[100])
+int8_t interpretare_string(char string[100])
 {
 	char *perm1 = strtok(string, " | \n");
 	int i = 0;
@@ -540,12 +540,23 @@ int interpretare_string(char string[100])
 		perm1 = strtok(NULL, " | \n");
 		
 	}
-	printf("%d", i);
-	return 0;
+	return i;
 	
 }
+
 void mprotect(arena_t *arena, uint64_t address, int8_t *permission)
 {
-	char *perm1 = strtok((char *)permissions, " | ");
-	printf("%s", perm1);
+	if (block_finder(arena, address) == NULL) {
+		printf("Invalid address for mprotect.\n");
+		return;
+	}
+	block_t *block = block_finder(arena, address);
+	node *curr = (((list_t *)block->miniblock_list)->head);
+	while (curr) {
+		if (address == ((miniblock_t *)curr->data)->start_address) {
+			break;
+		}
+		curr = curr->next;
+	}
+	((miniblock_t *)curr->data)->perm = *permission;
 }

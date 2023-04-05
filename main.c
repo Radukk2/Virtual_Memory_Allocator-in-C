@@ -62,8 +62,8 @@ int main(void)
             scanf("%lld ", &add);
             char string[100];
             fgets(string, 100, stdin);
-            int num = interpretare_string(string);
-            // mprotect(new_arena, add, );
+            int8_t num = interpretare_string(string);
+            mprotect(new_arena, add, &num);
             invalid_command = 1;
         }
         if (invalid_command == 0)
