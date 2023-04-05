@@ -59,9 +59,11 @@ int main(void)
             invalid_command = 1;
         }
         if (strncmp(comanda, "MPROTECT", 8) == 0) {
-            scanf("%lld", &add);
-            scanf("%s", string);
-            mprotect(new_arena, add, string);
+            scanf("%lld ", &add);
+            char string[100];
+            fgets(string, 100, stdin);
+            int num = interpretare_string(string);
+            // mprotect(new_arena, add, );
             invalid_command = 1;
         }
         if (invalid_command == 0)

@@ -517,7 +517,35 @@ void pmap(const arena_t *arena)
 
 }
 
+int verif_str(char str[10])
+{
+	if (strcmp(str, "PROT_NONE") == 0)
+		return 0;
+	if (strcmp(str, "PROT_READ") == 0)
+		return 4;
+	if (strcmp(str, "PROT_WRITE") == 0)
+		return 2;
+	if (strcmp(str, "PROT_WRITE") == 0)
+		return 1;
+}
+
+int interpretare_string(char string[100])
+{
+	char *perm1 = strtok(string, " | \n");
+	int i = 0;
+	i += verif_str(perm1);
+	perm1 = strtok(NULL, " | \n");
+	while (perm1) {
+		i += verif_str(perm1);
+		perm1 = strtok(NULL, " | \n");
+		
+	}
+	printf("%d", i);
+	return 0;
+	
+}
 void mprotect(arena_t *arena, uint64_t address, int8_t *permission)
 {
-
+	char *perm1 = strtok((char *)permissions, " | ");
+	printf("%s", perm1);
 }
