@@ -558,5 +558,9 @@ void mprotect(arena_t *arena, uint64_t address, int8_t *permission)
 		}
 		curr = curr->next;
 	}
+	if (curr == NULL) {
+		printf("Invalid address for mprotect.\n");
+		return;
+	}
 	((miniblock_t *)curr->data)->perm = *permission;
 }
