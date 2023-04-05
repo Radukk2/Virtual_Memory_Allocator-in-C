@@ -7,13 +7,14 @@
 
 int main(void)
 {
-    char comanda[30];
+    char comanda[30], string[30];
+    long long dim, add;
     while(1){
         arena_t *new_arena;
         int invalid_command = 0;
-        fgets(comanda, sizeof(comanda), stdin);
+        scanf("%s", comanda);
         if (strncmp(comanda, "ALLOC_ARENA", 11) == 0) { 
-            int dim = atoi(strtok(comanda, "ALLOC_ARENA \n"));
+            scanf("%lld", &dim);
             new_arena = (arena_t*)alloc_arena(dim);
             invalid_command = 1;
         }
@@ -23,27 +24,34 @@ int main(void)
             invalid_command = 1;
         }
         if (strncmp(comanda, "ALLOC_BLOCK", 11) == 0) {
-            int add = atoi(strtok(comanda, "ALLOC_BlOCK \n"));
-            int dim = atoi(strtok(NULL, "\n"));
+            scanf("%lld", &add);
+            scanf("%lld", &dim);
             alloc_block(new_arena, add, dim);
             invalid_command = 1;
         }
         if (strncmp(comanda, "FREE_BLOCK", 10) == 0) {
-            int add = atoi(strtok(comanda, "FREE_BLOCK \n"));
+            scanf("%lld", &add);
             free_block(new_arena, add);
             invalid_command = 1;
         }
         if (strncmp(comanda, "READ", 4) == 0) {
-            int add = atoi(strtok(comanda, "READ \n"));
-            int dim = atoi(strtok(NULL, "\n"));
+           scanf("%lld", &add);
+           scanf("%lld", &dim);
             read(new_arena, add, dim);
             invalid_command = 1;
         }
         if (strncmp(comanda, "WRITE", 5) == 0) {
-            int add = atoi(strtok(comanda, "WRITE \n"));
-            int dim = atoi(strtok(NULL, "\n"));
-            int8_t data = atoi(strtok(NULL, "\n"));
-            write(new_arena, add ,dim, &data);
+            scanf("%lld", &add);
+            scanf("%lld", &dim);
+            char *data = malloc( dim * sizeof(char));
+            int i = 0;
+            while(i < dim) {
+                data[i] = getc(stdin);
+                i++;
+            }
+            printf("%s", data);
+            write(new_arena, add ,dim, string);
+            free(data);
             invalid_command = 1;
         }
         if (strncmp(comanda, "PMAP", 4) == 0) {
@@ -51,9 +59,9 @@ int main(void)
             invalid_command = 1;
         }
         if (strncmp(comanda, "MPROTECT", 8) == 0) {
-            int add = atoi(strtok(comanda, "MPROTECT \n"));
-            int8_t dim = atoi(strtok(NULL, "\n"));
-            mprotect(new_arena, add, &dim);
+            scanf("%lld", &add);
+            scanf("%s", string);
+            mprotect(new_arena, add, string);
             invalid_command = 1;
         }
         if (invalid_command == 0)
