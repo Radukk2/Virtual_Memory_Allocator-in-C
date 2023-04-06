@@ -177,7 +177,7 @@ miniblock_t * creator(block_t * parent)
 	mini->size = parent->size;
 	mini->start_address = parent->start_address;
 	mini->perm = 6;
-	mini->rw_buffer = malloc(parent->size);
+	mini->rw_buffer = malloc(mini->size);
 	return mini;
 }
 
@@ -379,7 +379,19 @@ void free_block(arena_t *arena, const uint64_t address)
 	free(block);
 	free(bl1);
 }	
+int read_perms(int nr)
+{
+	if (nr >= 4)
+		return 1;
+	return 0;
+}
 
+int write_perms(int nr)
+{
+	if (nr == 2 || nr == 6 || nr ==7)
+		return 1;
+	return 0;
+}
 void read(arena_t *arena, uint64_t address, uint64_t size)
 {
 
@@ -412,6 +424,14 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 			break;
 		curent = curent->next;
 	}
+	node *curr2 = curent;
+	while (curr2) {
+		if (read_perms(((miniblock_t *)curr2->data)->perm) != 1) {
+			printf("Invalid permissions for read\n");
+			return;
+		}
+		curr2 = curr2->next;
+	}
 	long l_max = true_size + address;
 	long cursor = ((miniblock_t *)(curent->data))->start_address;
 	while (true_size) {
@@ -434,6 +454,7 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 		true_size--;
 		cursor++;
 	}
+	printf("\n");
 }
 
 void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *data)
@@ -460,7 +481,25 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 			break;
 		curent = curent->next;
 	}
+	node *curr2 = curent;
+	node *curr3 = curent;
+	while (curr3) {
+		if (write_perms(((miniblock_t *)curr3->data)->perm) != 1) {
+			printf("Invalid permissions for write\n");
+			return;
+		}
+		curr3 = curr3->next;
+	}
 	long l_max = true_size + address;
+	while(curr2){
+		int start = ((miniblock_t *)curr2->data)->start_address;
+		int end = start + ((miniblock_t *)curr2->data)->size;
+		if (start < l_max)
+			((miniblock_t *)curr2->data)->rw_buffer = realloc(((miniblock_t *)curr2->data)->rw_buffer, ((miniblock_t *)curr2->data)->size);
+		else 
+			break;
+		curr2 = curr2->next;
+	}
 	long cursor = ((miniblock_t *)(curent->data))->start_address;
 	int j = 0;
 	while (true_size > 0) {
@@ -470,7 +509,7 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 			i++;
 			continue;
 		}
-		if (cursor >= address && cursor < l_max){
+		if (cursor >= address && cursor <= l_max){
 			((int8_t *)((miniblock_t *)curent->data)->rw_buffer)[i] = data[j];
 			i++;
 			j++;
@@ -518,8 +557,8 @@ void pmap(const arena_t *arena)
 	}
 	int i = 1;
 	curr = arena->alloc_list->head;
-	printf("Total memory: %lX bytes\n", arena->arena_size);
-	printf("Free memory : %llX bytes\n", arena->arena_size - mem);
+	printf("Total memory: 0x%lX bytes\n", arena->arena_size);
+	printf("Free memory : 0x%llX bytes\n", arena->arena_size - mem);
 	printf("Number of allocated blocks: %d\n", arena->alloc_list->size);
 	printf("Number of allocated miniblocks: %d\n", mini_nr);
 	while(curr) {
@@ -528,13 +567,13 @@ void pmap(const arena_t *arena)
 		printf("Block %d begin\n", i);
 		long long start = ((block_t *)curr->data)->start_address;
 		long long fin = start + ((block_t *)curr->data)->size;
-		printf("Zone: %llx - %llx\n", start, fin);
+		printf("Zone: 0x%llx - 0x%llx\n", start, fin);
 		node *mini = ((list_t *)((block_t *)curr->data)->miniblock_list)->head;
 		int j = 1;
 		while(mini) {
 			long long addres1 = ((miniblock_t *)mini->data)->start_address;
 			long long addres2 = addres1 + ((miniblock_t *)mini->data)->size;
-			printf("Miniblock %d:\t\t%llx\t\t-\t\t%llx", j, addres1, addres2);
+			printf("Miniblock %d:\t\t0x%llx\t\t-\t\t0x%llx", j, addres1, addres2);
 			char *perms = permissions(((miniblock_t *)mini->data)->perm);
 			printf("\t\t| %s\n", perms);
 			mini = mini->next;

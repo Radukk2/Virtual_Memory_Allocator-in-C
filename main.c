@@ -13,34 +13,34 @@ int main(void)
         arena_t *new_arena;
         int invalid_command = 0;
         scanf("%s", comanda);
-        if (strncmp(comanda, "ALLOC_ARENA", 11) == 0) { 
+        if (strcmp(comanda, "ALLOC_ARENA") == 0) { 
             scanf("%lld", &dim);
             new_arena = (arena_t*)alloc_arena(dim);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "DEALLOC_ARENA", 13) == 0) {
+        if (strcmp(comanda, "DEALLOC_ARENA") == 0) {
             dealloc_arena(new_arena);
             break;
             invalid_command = 1;
         }
-        if (strncmp(comanda, "ALLOC_BLOCK", 11) == 0) {
+        if (strcmp(comanda, "ALLOC_BLOCK") == 0) {
             scanf("%lld", &add);
             scanf("%lld", &dim);
             alloc_block(new_arena, add, dim);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "FREE_BLOCK", 10) == 0) {
+        if (strcmp(comanda, "FREE_BLOCK") == 0) {
             scanf("%lld", &add);
             free_block(new_arena, add);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "READ", 4) == 0) {
+        if (strcmp(comanda, "READ") == 0) {
            scanf("%lld", &add);
            scanf("%lld", &dim);
             read(new_arena, add, dim);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "WRITE", 5) == 0) {
+        if (strcmp(comanda, "WRITE") == 0) {
             scanf("%lld", &add);
             scanf("%lld ", &dim);
             uint8_t *data = malloc( dim * sizeof(char));
@@ -53,11 +53,11 @@ int main(void)
             free(data);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "PMAP", 4) == 0) {
+        if (strcmp(comanda, "PMAP") == 0) {
             pmap(new_arena);
             invalid_command = 1;
         }
-        if (strncmp(comanda, "MPROTECT", 8) == 0) {
+        if (strcmp(comanda, "MPROTECT") == 0) {
             scanf("%lld ", &add);
             char string[100];
             fgets(string, 100, stdin);
