@@ -42,15 +42,14 @@ int main(void)
         }
         if (strncmp(comanda, "WRITE", 5) == 0) {
             scanf("%lld", &add);
-            scanf("%lld", &dim);
-            char *data = malloc( dim * sizeof(char));
+            scanf("%lld ", &dim);
+            uint8_t *data = malloc( dim * sizeof(char));
             int i = 0;
             while(i < dim) {
                 data[i] = getc(stdin);
                 i++;
             }
-            printf("%s", data);
-            write(new_arena, add ,dim, string);
+            write(new_arena, add ,dim, data);
             free(data);
             invalid_command = 1;
         }

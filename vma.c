@@ -177,7 +177,7 @@ miniblock_t * creator(block_t * parent)
 	mini->size = parent->size;
 	mini->start_address = parent->start_address;
 	mini->perm = 6;
-	mini->rw_buffer = malloc(parent->size * sizeof(char));
+	mini->rw_buffer = malloc(parent->size);
 	return mini;
 }
 
@@ -405,8 +405,34 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 			break;
 		curent = curent->next;
 	}
+	while (curent) {
+		int start = ((miniblock_t *)curent->data)->start_address;
+		int end = start + ((miniblock_t *)curent->data)->size;
+		if (start <= address && address <= end)
+			break;
+		curent = curent->next;
+	}
+	long l_max = true_size + address;
+	long cursor = ((miniblock_t *)(curent->data))->start_address;
 	while (true_size) {
+		static int i = -1;
+		if (cursor < address) {
+			cursor++;
+			i++;
+			continue;
+		}
+		if (cursor >= address && cursor <=l_max) {
+			printf("%c", ((int8_t *)((miniblock_t *)curent->data)->rw_buffer)[i]);
+			i++;
+		}
+		int left = ((miniblock_t *)curent->data)->start_address;
+		int right = left + ((miniblock_t *)curent->data)->size;
+		if (cursor >= right) {
+			curent = curent->next;
+			i = 0;
+		}
 		true_size--;
+		cursor++;
 	}
 }
 
@@ -436,23 +462,27 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 	}
 	long l_max = true_size + address;
 	long cursor = ((miniblock_t *)(curent->data))->start_address;
-	while (true_size) {
-		int i = 0;
+	int j = 0;
+	while (true_size > 0) {
+		static int i = -1;
 		if (cursor < address) {
 			cursor++;
-			continue;
 			i++;
+			continue;
 		}
-		int j = 0;
-		if (cursor >= address && cursor <=l_max){
+		if (cursor >= address && cursor < l_max){
 			((int8_t *)((miniblock_t *)curent->data)->rw_buffer)[i] = data[j];
+			i++;
 			j++;
 		}
 		int left = ((miniblock_t *)curent->data)->start_address;
 		int right = left + ((miniblock_t *)curent->data)->size;
-		if (cursor >= right)
+		if (cursor >= right) {
 			curent = curent->next;
+			i = 0;
+		}
 		true_size--;
+		cursor++;
 	}
 }
 
