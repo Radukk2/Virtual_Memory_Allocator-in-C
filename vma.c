@@ -68,10 +68,17 @@ node* remove_node(list_t* list, unsigned int poz)
 {
 	if (list->size == 0)
 		return 0;
-	if (poz == 0) {
+	if (poz == 0 && list->size == 1) {
 		node* curent = list->head;
 		list->head = curent->next;
 		curent->prev = NULL;
+		list->size--;
+		return curent;
+	}
+	if (poz == 0) {
+		node* curent = list->head;
+		list->head = curent->next;
+		curent->next->prev = NULL;
 		list->size--;
 		return curent;
 	}
@@ -190,9 +197,7 @@ void merger(block_t* first, block_t* last)
 		add_node(((list_t *)(first->miniblock_list)), size + 1, curent->data);
 		curent = curent->next;
 	}
-	// free_rw_buffer(last);
-	// free_function((list_t **)&last->miniblock_list);
-	// free(last);
+
 }
 
 void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)

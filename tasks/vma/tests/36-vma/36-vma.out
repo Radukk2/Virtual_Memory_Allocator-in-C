@@ -2446,9 +2446,9 @@ Invalid address for free.
 Invalid address for free.
 Invalid address for free.
 Total memory: 0x1388000 bytes
-Free memory: 0xFFFFFFFFF9C47000 bytes
-Number of allocated blocks: 46
-Number of allocated miniblocks: 4953
+Free memory: 0xFFFFFFFFF9C4A000 bytes
+Number of allocated blocks: 45
+Number of allocated miniblocks: 4947
 
 Block 1 begin
 Zone: 0x0 - 0x1000
@@ -2456,38 +2456,28 @@ Miniblock 1:		0x0		-		0x1000		| RW-
 Block 1 end
 
 Block 2 begin
-Zone: 0x4000 - 0x8000
-Miniblock 1:		0xC6000		-		0xC7000		| RW-
-Miniblock 2:		0xC7000		-		0xC8000		| RW-
-Miniblock 3:		0xC8000		-		0xC9000		| RW-
-Miniblock 4:		0xC9000		-		0xCA000		| RW-
-Miniblock 5:		0xCA000		-		0xCB000		| RW-
-Miniblock 6:		0xCB000		-		0xCC000		| RW-
+Zone: 0x5000 - 0x9000
+Miniblock 1:		0x5000		-		0x6000		| RW-
+Miniblock 2:		0x6000		-		0x7000		| RW-
 Block 2 end
 
 Block 3 begin
-Zone: 0x5000 - 0x8000
-Miniblock 1:		0x5000		-		0x6000		| RW-
-Miniblock 2:		0x6000		-		0x7000		| RW-
-Block 3 end
-
-Block 4 begin
 Zone: 0x9000 - 0x14000
 Miniblock 1:		0x9000		-		0xA000		| RW-
 Miniblock 2:		0xA000		-		0xB000		| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 0xC000 - 0x16000
+Miniblock 1:		0xC000		-		0xD000		| RW-
 Block 4 end
 
 Block 5 begin
-Zone: 0xC000 - 0x16000
-Miniblock 1:		0xC000		-		0xD000		| RW-
+Zone: 0xE000 - 0x18000
+Miniblock 1:		0xE000		-		0xF000		| RW-
 Block 5 end
 
 Block 6 begin
-Zone: 0xE000 - 0x18000
-Miniblock 1:		0xE000		-		0xF000		| RW-
-Block 6 end
-
-Block 7 begin
 Zone: 0x10000 - 0x29000
 Miniblock 1:		0x10000		-		0x11000		| RW-
 Miniblock 2:		0x11000		-		0x12000		| RW-
@@ -2498,17 +2488,17 @@ Miniblock 6:		0x15000		-		0x16000		| RW-
 Miniblock 7:		0x16000		-		0x17000		| RW-
 Miniblock 8:		0x17000		-		0x18000		| RW-
 Miniblock 9:		0x18000		-		0x19000		| RW-
-Block 7 end
+Block 6 end
 
-Block 8 begin
+Block 7 begin
 Zone: 0x1B000 - 0x28000
 Miniblock 1:		0x1B000		-		0x1C000		| RW-
 Miniblock 2:		0x1C000		-		0x1D000		| RW-
 Miniblock 3:		0x1D000		-		0x1E000		| RW-
 Miniblock 4:		0x1E000		-		0x1F000		| RW-
-Block 8 end
+Block 7 end
 
-Block 9 begin
+Block 8 begin
 Zone: 0x20000 - 0x4B000
 Miniblock 1:		0x20000		-		0x21000		| RW-
 Miniblock 2:		0x21000		-		0x22000		| RW-
@@ -2521,9 +2511,9 @@ Miniblock 8:		0x27000		-		0x28000		| RW-
 Miniblock 9:		0x28000		-		0x29000		| RW-
 Miniblock 10:		0x29000		-		0x2A000		| RW-
 Miniblock 11:		0x2A000		-		0x2B000		| RW-
-Block 9 end
+Block 8 end
 
-Block 10 begin
+Block 9 begin
 Zone: 0x2C000 - 0x6C000
 Miniblock 1:		0x2C000		-		0x2D000		| RW-
 Miniblock 2:		0x2D000		-		0x2E000		| RW-
@@ -2557,16 +2547,16 @@ Miniblock 29:		0x48000		-		0x49000		| RW-
 Miniblock 30:		0x49000		-		0x4A000		| RW-
 Miniblock 31:		0x4A000		-		0x4B000		| RW-
 Miniblock 32:		0x4B000		-		0x4C000		| RW-
-Block 10 end
+Block 9 end
 
-Block 11 begin
+Block 10 begin
 Zone: 0x4D000 - 0x70000
 Miniblock 1:		0x4D000		-		0x4E000		| RW-
 Miniblock 2:		0x4E000		-		0x4F000		| RW-
 Miniblock 3:		0x4F000		-		0x50000		| RW-
-Block 11 end
+Block 10 end
 
-Block 12 begin
+Block 11 begin
 Zone: 0x51000 - 0xC2000
 Miniblock 1:		0x51000		-		0x52000		| RW-
 Miniblock 2:		0x52000		-		0x53000		| RW-
@@ -2600,16 +2590,16 @@ Miniblock 29:		0x6D000		-		0x6E000		| RW-
 Miniblock 30:		0x6E000		-		0x6F000		| RW-
 Miniblock 31:		0x6F000		-		0x70000		| RW-
 Miniblock 32:		0x70000		-		0x71000		| RW-
-Block 12 end
+Block 11 end
 
-Block 13 begin
+Block 12 begin
 Zone: 0x72000 - 0xC6000
 Miniblock 1:		0x72000		-		0x73000		| RW-
 Miniblock 2:		0x73000		-		0x74000		| RW-
 Miniblock 3:		0x74000		-		0x75000		| RW-
-Block 13 end
+Block 12 end
 
-Block 14 begin
+Block 13 begin
 Zone: 0x76000 - 0xA7000
 Miniblock 1:		0x76000		-		0x77000		| RW-
 Miniblock 2:		0x77000		-		0x78000		| RW-
@@ -2628,9 +2618,9 @@ Miniblock 14:		0x83000		-		0x84000		| RW-
 Miniblock 15:		0x84000		-		0x85000		| RW-
 Miniblock 16:		0x85000		-		0x86000		| RW-
 Miniblock 17:		0x86000		-		0x87000		| RW-
-Block 14 end
+Block 13 end
 
-Block 15 begin
+Block 14 begin
 Zone: 0x88000 - 0xC4000
 Miniblock 1:		0x88000		-		0x89000		| RW-
 Miniblock 2:		0x89000		-		0x8A000		| RW-
@@ -2660,9 +2650,9 @@ Miniblock 25:		0xA0000		-		0xA1000		| RW-
 Miniblock 26:		0xA1000		-		0xA2000		| RW-
 Miniblock 27:		0xA2000		-		0xA3000		| RW-
 Miniblock 28:		0xA3000		-		0xA4000		| RW-
-Block 15 end
+Block 14 end
 
-Block 16 begin
+Block 15 begin
 Zone: 0xA5000 - 0xB0000
 Miniblock 1:		0xA5000		-		0xA6000		| RW-
 Miniblock 2:		0xA6000		-		0xA7000		| RW-
@@ -2675,9 +2665,9 @@ Miniblock 8:		0xAC000		-		0xAD000		| RW-
 Miniblock 9:		0xAD000		-		0xAE000		| RW-
 Miniblock 10:		0xAE000		-		0xAF000		| RW-
 Miniblock 11:		0xAF000		-		0xB0000		| RW-
-Block 16 end
+Block 15 end
 
-Block 17 begin
+Block 16 begin
 Zone: 0xB1000 - 0x176000
 Miniblock 1:		0xB1000		-		0xB2000		| RW-
 Miniblock 2:		0xB2000		-		0xB3000		| RW-
@@ -2699,16 +2689,16 @@ Miniblock 17:		0xC1000		-		0xC2000		| RW-
 Miniblock 18:		0xC2000		-		0xC3000		| RW-
 Miniblock 19:		0xC3000		-		0xC4000		| RW-
 Miniblock 20:		0xC4000		-		0xC5000		| RW-
-Block 17 end
+Block 16 end
 
-Block 18 begin
+Block 17 begin
 Zone: 0xC6000 - 0x1C1000
-Miniblock 1:		0x56064727E390		-		0xAC0C8E4C63A0		| RW-
-Miniblock 2:		0xC6000		-		0xC7000		| RW-
-Miniblock 3:		0xC7000		-		0xC8000		| RW-
-Miniblock 4:		0xC8000		-		0xC9000		| RW-
-Miniblock 5:		0xC9000		-		0xCA000		| RW-
-Miniblock 6:		0xCA000		-		0xCB000		| RW-
+Miniblock 1:		0xC6000		-		0xC7000		| RW-
+Miniblock 2:		0xC7000		-		0xC8000		| RW-
+Miniblock 3:		0xC8000		-		0xC9000		| RW-
+Miniblock 4:		0xC9000		-		0xCA000		| RW-
+Miniblock 5:		0xCA000		-		0xCB000		| RW-
+Miniblock 6:		0xCB000		-		0xCC000		| RW-
 Miniblock 7:		0xCC000		-		0xCD000		| RW-
 Miniblock 8:		0xCD000		-		0xCE000		| RW-
 Miniblock 9:		0xCE000		-		0xCF000		| RW-
@@ -2777,9 +2767,9 @@ Miniblock 71:		0x10C000		-		0x10D000		| RW-
 Miniblock 72:		0x10D000		-		0x10E000		| RW-
 Miniblock 73:		0x10E000		-		0x10F000		| RW-
 Miniblock 74:		0x10F000		-		0x110000		| RW-
-Block 18 end
+Block 17 end
 
-Block 19 begin
+Block 18 begin
 Zone: 0x111000 - 0x199000
 Miniblock 1:		0x111000		-		0x112000		| RW-
 Miniblock 2:		0x112000		-		0x113000		| RW-
@@ -2917,9 +2907,9 @@ Miniblock 133:		0x195000		-		0x196000		| RW-
 Miniblock 134:		0x196000		-		0x197000		| RW-
 Miniblock 135:		0x197000		-		0x198000		| RW-
 Miniblock 136:		0x198000		-		0x199000		| RW-
-Block 19 end
+Block 18 end
 
-Block 20 begin
+Block 19 begin
 Zone: 0x19A000 - 0x35C000
 Miniblock 1:		0x19A000		-		0x19B000		| RW-
 Miniblock 2:		0x19B000		-		0x19C000		| RW-
@@ -2961,28 +2951,28 @@ Miniblock 37:		0x1BE000		-		0x1BF000		| RW-
 Miniblock 38:		0x1BF000		-		0x1C0000		| RW-
 Miniblock 39:		0x1C0000		-		0x1C1000		| RW-
 Miniblock 40:		0x1C1000		-		0x1C2000		| RW-
-Block 20 end
+Block 19 end
 
-Block 21 begin
+Block 20 begin
 Zone: 0x1C3000 - 0x35F000
 Miniblock 1:		0x1C3000		-		0x1C4000		| RW-
 Miniblock 2:		0x1C4000		-		0x1C5000		| RW-
+Block 20 end
+
+Block 21 begin
+Zone: 0x1C6000 - 0x361000
+Miniblock 1:		0x1C6000		-		0x1C7000		| RW-
 Block 21 end
 
 Block 22 begin
-Zone: 0x1C6000 - 0x361000
-Miniblock 1:		0x1C6000		-		0x1C7000		| RW-
-Block 22 end
-
-Block 23 begin
 Zone: 0x1C8000 - 0x366000
 Miniblock 1:		0x1C8000		-		0x1C9000		| RW-
 Miniblock 2:		0x1C9000		-		0x1CA000		| RW-
 Miniblock 3:		0x1CA000		-		0x1CB000		| RW-
 Miniblock 4:		0x1CB000		-		0x1CC000		| RW-
-Block 23 end
+Block 22 end
 
-Block 24 begin
+Block 23 begin
 Zone: 0x1CD000 - 0x1D9000
 Miniblock 1:		0x1CD000		-		0x1CE000		| RW-
 Miniblock 2:		0x1CE000		-		0x1CF000		| RW-
@@ -2996,9 +2986,9 @@ Miniblock 9:		0x1D5000		-		0x1D6000		| RW-
 Miniblock 10:		0x1D6000		-		0x1D7000		| RW-
 Miniblock 11:		0x1D7000		-		0x1D8000		| RW-
 Miniblock 12:		0x1D8000		-		0x1D9000		| RW-
-Block 24 end
+Block 23 end
 
-Block 25 begin
+Block 24 begin
 Zone: 0x1DA000 - 0x3BA000
 Miniblock 1:		0x1DA000		-		0x1DB000		| RW-
 Miniblock 2:		0x1DB000		-		0x1DC000		| RW-
@@ -3006,9 +2996,9 @@ Miniblock 3:		0x1DC000		-		0x1DD000		| RW-
 Miniblock 4:		0x1DD000		-		0x1DE000		| RW-
 Miniblock 5:		0x1DE000		-		0x1DF000		| RW-
 Miniblock 6:		0x1DF000		-		0x1E0000		| RW-
-Block 25 end
+Block 24 end
 
-Block 26 begin
+Block 25 begin
 Zone: 0x1E1000 - 0x1FC000
 Miniblock 1:		0x1E1000		-		0x1E2000		| RW-
 Miniblock 2:		0x1E2000		-		0x1E3000		| RW-
@@ -3037,9 +3027,9 @@ Miniblock 24:		0x1F8000		-		0x1F9000		| RW-
 Miniblock 25:		0x1F9000		-		0x1FA000		| RW-
 Miniblock 26:		0x1FA000		-		0x1FB000		| RW-
 Miniblock 27:		0x1FB000		-		0x1FC000		| RW-
-Block 26 end
+Block 25 end
 
-Block 27 begin
+Block 26 begin
 Zone: 0x1FD000 - 0x429000
 Miniblock 1:		0x1FD000		-		0x1FE000		| RW-
 Miniblock 2:		0x1FE000		-		0x1FF000		| RW-
@@ -3088,9 +3078,9 @@ Miniblock 44:		0x228000		-		0x229000		| RW-
 Miniblock 45:		0x229000		-		0x22A000		| RW-
 Miniblock 46:		0x22A000		-		0x22B000		| RW-
 Miniblock 47:		0x22B000		-		0x22C000		| RW-
-Block 27 end
+Block 26 end
 
-Block 28 begin
+Block 27 begin
 Zone: 0x22E000 - 0x65A000
 Miniblock 1:		0x22E000		-		0x22F000		| RW-
 Miniblock 2:		0x22F000		-		0x230000		| RW-
@@ -3602,30 +3592,30 @@ Miniblock 507:		0x428000		-		0x429000		| RW-
 Miniblock 508:		0x429000		-		0x42A000		| RW-
 Miniblock 509:		0x42A000		-		0x42B000		| RW-
 Miniblock 510:		0x42B000		-		0x42C000		| RW-
+Block 27 end
+
+Block 28 begin
+Zone: 0x42D000 - 0x65C000
+Miniblock 1:		0x42D000		-		0x42E000		| RW-
 Block 28 end
 
 Block 29 begin
-Zone: 0x42D000 - 0x65C000
-Miniblock 1:		0x42D000		-		0x42E000		| RW-
-Block 29 end
-
-Block 30 begin
 Zone: 0x42F000 - 0x660000
 Miniblock 1:		0x42F000		-		0x430000		| RW-
 Miniblock 2:		0x430000		-		0x431000		| RW-
 Miniblock 3:		0x431000		-		0x432000		| RW-
-Block 30 end
+Block 29 end
 
-Block 31 begin
+Block 30 begin
 Zone: 0x434000 - 0x667000
 Miniblock 1:		0x434000		-		0x435000		| RW-
 Miniblock 2:		0x435000		-		0x436000		| RW-
 Miniblock 3:		0x436000		-		0x437000		| RW-
 Miniblock 4:		0x437000		-		0x438000		| RW-
 Miniblock 5:		0x438000		-		0x439000		| RW-
-Block 31 end
+Block 30 end
 
-Block 32 begin
+Block 31 begin
 Zone: 0x43A000 - 0x685000
 Miniblock 1:		0x43A000		-		0x43B000		| RW-
 Miniblock 2:		0x43B000		-		0x43C000		| RW-
@@ -3656,9 +3646,9 @@ Miniblock 26:		0x453000		-		0x454000		| RW-
 Miniblock 27:		0x454000		-		0x455000		| RW-
 Miniblock 28:		0x455000		-		0x456000		| RW-
 Miniblock 29:		0x456000		-		0x457000		| RW-
-Block 32 end
+Block 31 end
 
-Block 33 begin
+Block 32 begin
 Zone: 0x458000 - 0x6A2000
 Miniblock 1:		0x458000		-		0x459000		| RW-
 Miniblock 2:		0x459000		-		0x45A000		| RW-
@@ -3688,9 +3678,9 @@ Miniblock 25:		0x470000		-		0x471000		| RW-
 Miniblock 26:		0x471000		-		0x472000		| RW-
 Miniblock 27:		0x472000		-		0x473000		| RW-
 Miniblock 28:		0x473000		-		0x474000		| RW-
-Block 33 end
+Block 32 end
 
-Block 34 begin
+Block 33 begin
 Zone: 0x475000 - 0x4BC000
 Miniblock 1:		0x475000		-		0x476000		| RW-
 Miniblock 2:		0x476000		-		0x477000		| RW-
@@ -3763,9 +3753,9 @@ Miniblock 68:		0x4B8000		-		0x4B9000		| RW-
 Miniblock 69:		0x4B9000		-		0x4BA000		| RW-
 Miniblock 70:		0x4BA000		-		0x4BB000		| RW-
 Miniblock 71:		0x4BB000		-		0x4BC000		| RW-
-Block 34 end
+Block 33 end
 
-Block 35 begin
+Block 34 begin
 Zone: 0x4BD000 - 0xA2E000
 Miniblock 1:		0x4BD000		-		0x4BE000		| RW-
 Miniblock 2:		0x4BE000		-		0x4BF000		| RW-
@@ -3947,18 +3937,18 @@ Miniblock 177:		0x56D000		-		0x56E000		| RW-
 Miniblock 178:		0x56E000		-		0x56F000		| RW-
 Miniblock 179:		0x56F000		-		0x570000		| RW-
 Miniblock 180:		0x570000		-		0x571000		| RW-
-Block 35 end
+Block 34 end
 
-Block 36 begin
+Block 35 begin
 Zone: 0x572000 - 0x577000
 Miniblock 1:		0x572000		-		0x573000		| RW-
 Miniblock 2:		0x573000		-		0x574000		| RW-
 Miniblock 3:		0x574000		-		0x575000		| RW-
 Miniblock 4:		0x575000		-		0x576000		| RW-
 Miniblock 5:		0x576000		-		0x577000		| RW-
-Block 36 end
+Block 35 end
 
-Block 37 begin
+Block 36 begin
 Zone: 0x578000 - 0x703000
 Miniblock 1:		0x578000		-		0x579000		| RW-
 Miniblock 2:		0x579000		-		0x57A000		| RW-
@@ -4355,9 +4345,9 @@ Miniblock 392:		0x6FF000		-		0x700000		| RW-
 Miniblock 393:		0x700000		-		0x701000		| RW-
 Miniblock 394:		0x701000		-		0x702000		| RW-
 Miniblock 395:		0x702000		-		0x703000		| RW-
-Block 37 end
+Block 36 end
 
-Block 38 begin
+Block 37 begin
 Zone: 0x704000 - 0xE72000
 Miniblock 1:		0x704000		-		0x705000		| RW-
 Miniblock 2:		0x705000		-		0x706000		| RW-
@@ -4465,9 +4455,9 @@ Miniblock 103:		0x76A000		-		0x76B000		| RW-
 Miniblock 104:		0x76B000		-		0x76C000		| RW-
 Miniblock 105:		0x76C000		-		0x76D000		| RW-
 Miniblock 106:		0x76D000		-		0x76E000		| RW-
-Block 38 end
+Block 37 end
 
-Block 39 begin
+Block 38 begin
 Zone: 0x76F000 - 0xEE0000
 Miniblock 1:		0x76F000		-		0x770000		| RW-
 Miniblock 2:		0x770000		-		0x771000		| RW-
@@ -4578,9 +4568,9 @@ Miniblock 106:		0x7D8000		-		0x7D9000		| RW-
 Miniblock 107:		0x7D9000		-		0x7DA000		| RW-
 Miniblock 108:		0x7DA000		-		0x7DB000		| RW-
 Miniblock 109:		0x7DB000		-		0x7DC000		| RW-
-Block 39 end
+Block 38 end
 
-Block 40 begin
+Block 39 begin
 Zone: 0x7DD000 - 0xF16000
 Miniblock 1:		0x7DD000		-		0x7DE000		| RW-
 Miniblock 2:		0x7DE000		-		0x7DF000		| RW-
@@ -4635,9 +4625,9 @@ Miniblock 50:		0x80E000		-		0x80F000		| RW-
 Miniblock 51:		0x80F000		-		0x810000		| RW-
 Miniblock 52:		0x810000		-		0x811000		| RW-
 Miniblock 53:		0x811000		-		0x812000		| RW-
-Block 40 end
+Block 39 end
 
-Block 41 begin
+Block 40 begin
 Zone: 0x813000 - 0xF99000
 Miniblock 1:		0x813000		-		0x814000		| RW-
 Miniblock 2:		0x814000		-		0x815000		| RW-
@@ -4769,9 +4759,9 @@ Miniblock 127:		0x891000		-		0x892000		| RW-
 Miniblock 128:		0x892000		-		0x893000		| RW-
 Miniblock 129:		0x893000		-		0x894000		| RW-
 Miniblock 130:		0x894000		-		0x895000		| RW-
-Block 41 end
+Block 40 end
 
-Block 42 begin
+Block 41 begin
 Zone: 0x896000 - 0x1252000
 Miniblock 1:		0x896000		-		0x897000		| RW-
 Miniblock 2:		0x897000		-		0x898000		| RW-
@@ -5469,9 +5459,9 @@ Miniblock 693:		0xB4A000		-		0xB4B000		| RW-
 Miniblock 694:		0xB4B000		-		0xB4C000		| RW-
 Miniblock 695:		0xB4C000		-		0xB4D000		| RW-
 Miniblock 696:		0xB4D000		-		0xB4E000		| RW-
-Block 42 end
+Block 41 end
 
-Block 43 begin
+Block 42 begin
 Zone: 0xB4F000 - 0x1DA7000
 Miniblock 1:		0xB4F000		-		0xB50000		| RW-
 Miniblock 2:		0xB50000		-		0xB51000		| RW-
@@ -7274,16 +7264,16 @@ Miniblock 1798:		0x1254000		-		0x1255000		| RW-
 Miniblock 1799:		0x1255000		-		0x1256000		| RW-
 Miniblock 1800:		0x1256000		-		0x1257000		| RW-
 Miniblock 1801:		0x1257000		-		0x1258000		| RW-
-Block 43 end
+Block 42 end
 
-Block 44 begin
+Block 43 begin
 Zone: 0x125A000 - 0x1DAC000
 Miniblock 1:		0x125A000		-		0x125B000		| RW-
 Miniblock 2:		0x125B000		-		0x125C000		| RW-
 Miniblock 3:		0x125C000		-		0x125D000		| RW-
-Block 44 end
+Block 43 end
 
-Block 45 begin
+Block 44 begin
 Zone: 0x125F000 - 0x1DF1000
 Miniblock 1:		0x125F000		-		0x1260000		| RW-
 Miniblock 2:		0x1260000		-		0x1261000		| RW-
@@ -7352,9 +7342,9 @@ Miniblock 64:		0x129E000		-		0x129F000		| RW-
 Miniblock 65:		0x129F000		-		0x12A0000		| RW-
 Miniblock 66:		0x12A0000		-		0x12A1000		| RW-
 Miniblock 67:		0x12A1000		-		0x12A2000		| RW-
-Block 45 end
+Block 44 end
 
-Block 46 begin
+Block 45 begin
 Zone: 0x12A3000 - 0x1388000
 Miniblock 1:		0x12A3000		-		0x12A4000		| RW-
 Miniblock 2:		0x12A4000		-		0x12A5000		| RW-
@@ -7585,9 +7575,7 @@ Miniblock 226:		0x1384000		-		0x1385000		| RW-
 Miniblock 227:		0x1385000		-		0x1386000		| RW-
 Miniblock 228:		0x1386000		-		0x1387000		| RW-
 Miniblock 229:		0x1387000		-		0x1388000		| RW-
-Block 46 end
-Invalid address for free.
-Invalid address for free.
+Block 45 end
 Invalid address for free.
 Invalid address for free.
 Invalid address for free.
@@ -10079,37 +10067,21 @@ Invalid address for free.
 Invalid address for free.
 Invalid address for free.
 Total memory: 0x1388000 bytes
-Free memory: 0xFFFFFFFFF838C000 bytes
-Number of allocated blocks: 47
-Number of allocated miniblocks: 4945
+Free memory: 0xFFFFFFFFF8393000 bytes
+Number of allocated blocks: 45
+Number of allocated miniblocks: 4937
 
 Block 1 begin
-Zone: 0x4000 - 0x8000
-Miniblock 1:		0xC6000		-		0xC7000		| RW-
-Miniblock 2:		0xC7000		-		0xC8000		| RW-
-Miniblock 3:		0xC8000		-		0xC9000		| RW-
-Miniblock 4:		0xC9000		-		0xCA000		| RW-
-Miniblock 5:		0xCA000		-		0xCB000		| RW-
-Miniblock 6:		0xCB000		-		0xCC000		| RW-
+Zone: 0xC000 - 0x16000
+Miniblock 1:		0xC000		-		0xD000		| RW-
 Block 1 end
 
 Block 2 begin
-Zone: 0x5000 - 0x8000
-Miniblock 1:		0x5000		-		0x6000		| RW-
-Miniblock 2:		0x6000		-		0x7000		| RW-
+Zone: 0xE000 - 0x18000
+Miniblock 1:		0xE000		-		0xF000		| RW-
 Block 2 end
 
 Block 3 begin
-Zone: 0xC000 - 0x16000
-Miniblock 1:		0xC000		-		0xD000		| RW-
-Block 3 end
-
-Block 4 begin
-Zone: 0xE000 - 0x18000
-Miniblock 1:		0xE000		-		0xF000		| RW-
-Block 4 end
-
-Block 5 begin
 Zone: 0x10000 - 0x29000
 Miniblock 1:		0x10000		-		0x11000		| RW-
 Miniblock 2:		0x11000		-		0x12000		| RW-
@@ -10120,17 +10092,17 @@ Miniblock 6:		0x15000		-		0x16000		| RW-
 Miniblock 7:		0x16000		-		0x17000		| RW-
 Miniblock 8:		0x17000		-		0x18000		| RW-
 Miniblock 9:		0x18000		-		0x19000		| RW-
-Block 5 end
+Block 3 end
 
-Block 6 begin
+Block 4 begin
 Zone: 0x1B000 - 0x28000
 Miniblock 1:		0x1B000		-		0x1C000		| RW-
 Miniblock 2:		0x1C000		-		0x1D000		| RW-
 Miniblock 3:		0x1D000		-		0x1E000		| RW-
 Miniblock 4:		0x1E000		-		0x1F000		| RW-
-Block 6 end
+Block 4 end
 
-Block 7 begin
+Block 5 begin
 Zone: 0x20000 - 0x4A000
 Miniblock 1:		0x20000		-		0x21000		| RW-
 Miniblock 2:		0x21000		-		0x22000		| RW-
@@ -10142,9 +10114,9 @@ Miniblock 7:		0x26000		-		0x27000		| RW-
 Miniblock 8:		0x27000		-		0x28000		| RW-
 Miniblock 9:		0x28000		-		0x29000		| RW-
 Miniblock 10:		0x29000		-		0x2A000		| RW-
-Block 7 end
+Block 5 end
 
-Block 8 begin
+Block 6 begin
 Zone: 0x2C000 - 0x6C000
 Miniblock 1:		0x2C000		-		0x2D000		| RW-
 Miniblock 2:		0x2D000		-		0x2E000		| RW-
@@ -10178,16 +10150,16 @@ Miniblock 29:		0x48000		-		0x49000		| RW-
 Miniblock 30:		0x49000		-		0x4A000		| RW-
 Miniblock 31:		0x4A000		-		0x4B000		| RW-
 Miniblock 32:		0x4B000		-		0x4C000		| RW-
-Block 8 end
+Block 6 end
 
-Block 9 begin
+Block 7 begin
 Zone: 0x4D000 - 0x70000
 Miniblock 1:		0x4D000		-		0x4E000		| RW-
 Miniblock 2:		0x4E000		-		0x4F000		| RW-
 Miniblock 3:		0x4F000		-		0x50000		| RW-
-Block 9 end
+Block 7 end
 
-Block 10 begin
+Block 8 begin
 Zone: 0x51000 - 0xC2000
 Miniblock 1:		0x51000		-		0x52000		| RW-
 Miniblock 2:		0x52000		-		0x53000		| RW-
@@ -10221,16 +10193,16 @@ Miniblock 29:		0x6D000		-		0x6E000		| RW-
 Miniblock 30:		0x6E000		-		0x6F000		| RW-
 Miniblock 31:		0x6F000		-		0x70000		| RW-
 Miniblock 32:		0x70000		-		0x71000		| RW-
-Block 10 end
+Block 8 end
 
-Block 11 begin
+Block 9 begin
 Zone: 0x72000 - 0xC6000
 Miniblock 1:		0x72000		-		0x73000		| RW-
 Miniblock 2:		0x73000		-		0x74000		| RW-
 Miniblock 3:		0x74000		-		0x75000		| RW-
-Block 11 end
+Block 9 end
 
-Block 12 begin
+Block 10 begin
 Zone: 0x76000 - 0xA7000
 Miniblock 1:		0x76000		-		0x77000		| RW-
 Miniblock 2:		0x77000		-		0x78000		| RW-
@@ -10249,9 +10221,9 @@ Miniblock 14:		0x83000		-		0x84000		| RW-
 Miniblock 15:		0x84000		-		0x85000		| RW-
 Miniblock 16:		0x85000		-		0x86000		| RW-
 Miniblock 17:		0x86000		-		0x87000		| RW-
-Block 12 end
+Block 10 end
 
-Block 13 begin
+Block 11 begin
 Zone: 0x88000 - 0xC4000
 Miniblock 1:		0x88000		-		0x89000		| RW-
 Miniblock 2:		0x89000		-		0x8A000		| RW-
@@ -10281,9 +10253,9 @@ Miniblock 25:		0xA0000		-		0xA1000		| RW-
 Miniblock 26:		0xA1000		-		0xA2000		| RW-
 Miniblock 27:		0xA2000		-		0xA3000		| RW-
 Miniblock 28:		0xA3000		-		0xA4000		| RW-
-Block 13 end
+Block 11 end
 
-Block 14 begin
+Block 12 begin
 Zone: 0xA5000 - 0xB0000
 Miniblock 1:		0xA5000		-		0xA6000		| RW-
 Miniblock 2:		0xA6000		-		0xA7000		| RW-
@@ -10296,9 +10268,9 @@ Miniblock 8:		0xAC000		-		0xAD000		| RW-
 Miniblock 9:		0xAD000		-		0xAE000		| RW-
 Miniblock 10:		0xAE000		-		0xAF000		| RW-
 Miniblock 11:		0xAF000		-		0xB0000		| RW-
-Block 14 end
+Block 12 end
 
-Block 15 begin
+Block 13 begin
 Zone: 0xB1000 - 0x176000
 Miniblock 1:		0xB1000		-		0xB2000		| RW-
 Miniblock 2:		0xB2000		-		0xB3000		| RW-
@@ -10320,16 +10292,16 @@ Miniblock 17:		0xC1000		-		0xC2000		| RW-
 Miniblock 18:		0xC2000		-		0xC3000		| RW-
 Miniblock 19:		0xC3000		-		0xC4000		| RW-
 Miniblock 20:		0xC4000		-		0xC5000		| RW-
-Block 15 end
+Block 13 end
 
-Block 16 begin
+Block 14 begin
 Zone: 0xC6000 - 0x1C1000
-Miniblock 1:		0x1257000		-		0x1258000		| RW-
-Miniblock 2:		0xC6000		-		0xC7000		| RW-
-Miniblock 3:		0xC7000		-		0xC8000		| RW-
-Miniblock 4:		0xC8000		-		0xC9000		| RW-
-Miniblock 5:		0xC9000		-		0xCA000		| RW-
-Miniblock 6:		0xCA000		-		0xCB000		| RW-
+Miniblock 1:		0xC6000		-		0xC7000		| RW-
+Miniblock 2:		0xC7000		-		0xC8000		| RW-
+Miniblock 3:		0xC8000		-		0xC9000		| RW-
+Miniblock 4:		0xC9000		-		0xCA000		| RW-
+Miniblock 5:		0xCA000		-		0xCB000		| RW-
+Miniblock 6:		0xCB000		-		0xCC000		| RW-
 Miniblock 7:		0xCC000		-		0xCD000		| RW-
 Miniblock 8:		0xCD000		-		0xCE000		| RW-
 Miniblock 9:		0xCE000		-		0xCF000		| RW-
@@ -10398,9 +10370,9 @@ Miniblock 71:		0x10C000		-		0x10D000		| RW-
 Miniblock 72:		0x10D000		-		0x10E000		| RW-
 Miniblock 73:		0x10E000		-		0x10F000		| RW-
 Miniblock 74:		0x10F000		-		0x110000		| RW-
-Block 16 end
+Block 14 end
 
-Block 17 begin
+Block 15 begin
 Zone: 0x111000 - 0x199000
 Miniblock 1:		0x111000		-		0x112000		| RW-
 Miniblock 2:		0x112000		-		0x113000		| RW-
@@ -10538,9 +10510,9 @@ Miniblock 133:		0x195000		-		0x196000		| RW-
 Miniblock 134:		0x196000		-		0x197000		| RW-
 Miniblock 135:		0x197000		-		0x198000		| RW-
 Miniblock 136:		0x198000		-		0x199000		| RW-
-Block 17 end
+Block 15 end
 
-Block 18 begin
+Block 16 begin
 Zone: 0x19A000 - 0x35C000
 Miniblock 1:		0x19A000		-		0x19B000		| RW-
 Miniblock 2:		0x19B000		-		0x19C000		| RW-
@@ -10582,28 +10554,28 @@ Miniblock 37:		0x1BE000		-		0x1BF000		| RW-
 Miniblock 38:		0x1BF000		-		0x1C0000		| RW-
 Miniblock 39:		0x1C0000		-		0x1C1000		| RW-
 Miniblock 40:		0x1C1000		-		0x1C2000		| RW-
-Block 18 end
+Block 16 end
 
-Block 19 begin
+Block 17 begin
 Zone: 0x1C3000 - 0x35F000
 Miniblock 1:		0x1C3000		-		0x1C4000		| RW-
 Miniblock 2:		0x1C4000		-		0x1C5000		| RW-
-Block 19 end
+Block 17 end
 
-Block 20 begin
+Block 18 begin
 Zone: 0x1C6000 - 0x361000
 Miniblock 1:		0x1C6000		-		0x1C7000		| RW-
-Block 20 end
+Block 18 end
 
-Block 21 begin
+Block 19 begin
 Zone: 0x1C8000 - 0x366000
 Miniblock 1:		0x1C8000		-		0x1C9000		| RW-
 Miniblock 2:		0x1C9000		-		0x1CA000		| RW-
 Miniblock 3:		0x1CA000		-		0x1CB000		| RW-
 Miniblock 4:		0x1CB000		-		0x1CC000		| RW-
-Block 21 end
+Block 19 end
 
-Block 22 begin
+Block 20 begin
 Zone: 0x1CD000 - 0x1D9000
 Miniblock 1:		0x1CD000		-		0x1CE000		| RW-
 Miniblock 2:		0x1CE000		-		0x1CF000		| RW-
@@ -10617,9 +10589,9 @@ Miniblock 9:		0x1D5000		-		0x1D6000		| RW-
 Miniblock 10:		0x1D6000		-		0x1D7000		| RW-
 Miniblock 11:		0x1D7000		-		0x1D8000		| RW-
 Miniblock 12:		0x1D8000		-		0x1D9000		| RW-
-Block 22 end
+Block 20 end
 
-Block 23 begin
+Block 21 begin
 Zone: 0x1DA000 - 0x3BA000
 Miniblock 1:		0x1DA000		-		0x1DB000		| RW-
 Miniblock 2:		0x1DB000		-		0x1DC000		| RW-
@@ -10627,9 +10599,9 @@ Miniblock 3:		0x1DC000		-		0x1DD000		| RW-
 Miniblock 4:		0x1DD000		-		0x1DE000		| RW-
 Miniblock 5:		0x1DE000		-		0x1DF000		| RW-
 Miniblock 6:		0x1DF000		-		0x1E0000		| RW-
-Block 23 end
+Block 21 end
 
-Block 24 begin
+Block 22 begin
 Zone: 0x1E1000 - 0x1FC000
 Miniblock 1:		0x1E1000		-		0x1E2000		| RW-
 Miniblock 2:		0x1E2000		-		0x1E3000		| RW-
@@ -10658,9 +10630,9 @@ Miniblock 24:		0x1F8000		-		0x1F9000		| RW-
 Miniblock 25:		0x1F9000		-		0x1FA000		| RW-
 Miniblock 26:		0x1FA000		-		0x1FB000		| RW-
 Miniblock 27:		0x1FB000		-		0x1FC000		| RW-
-Block 24 end
+Block 22 end
 
-Block 25 begin
+Block 23 begin
 Zone: 0x1FD000 - 0x429000
 Miniblock 1:		0x1FD000		-		0x1FE000		| RW-
 Miniblock 2:		0x1FE000		-		0x1FF000		| RW-
@@ -10709,9 +10681,9 @@ Miniblock 44:		0x228000		-		0x229000		| RW-
 Miniblock 45:		0x229000		-		0x22A000		| RW-
 Miniblock 46:		0x22A000		-		0x22B000		| RW-
 Miniblock 47:		0x22B000		-		0x22C000		| RW-
-Block 25 end
+Block 23 end
 
-Block 26 begin
+Block 24 begin
 Zone: 0x22E000 - 0x658000
 Miniblock 1:		0x22E000		-		0x22F000		| RW-
 Miniblock 2:		0x22F000		-		0x230000		| RW-
@@ -11221,35 +11193,35 @@ Miniblock 505:		0x426000		-		0x427000		| RW-
 Miniblock 506:		0x427000		-		0x428000		| RW-
 Miniblock 507:		0x428000		-		0x429000		| RW-
 Miniblock 508:		0x429000		-		0x42A000		| RW-
+Block 24 end
+
+Block 25 begin
+Zone: 0x42B000 - 0x65A000
+Miniblock 1:		0x42B000		-		0x42C000		| RW-
+Block 25 end
+
+Block 26 begin
+Zone: 0x42D000 - 0x65C000
+Miniblock 1:		0x42D000		-		0x42E000		| RW-
 Block 26 end
 
 Block 27 begin
-Zone: 0x42B000 - 0x65A000
-Miniblock 1:		0x42B000		-		0x42C000		| RW-
-Block 27 end
-
-Block 28 begin
-Zone: 0x42D000 - 0x65C000
-Miniblock 1:		0x42D000		-		0x42E000		| RW-
-Block 28 end
-
-Block 29 begin
 Zone: 0x42F000 - 0x660000
 Miniblock 1:		0x42F000		-		0x430000		| RW-
 Miniblock 2:		0x430000		-		0x431000		| RW-
 Miniblock 3:		0x431000		-		0x432000		| RW-
-Block 29 end
+Block 27 end
 
-Block 30 begin
+Block 28 begin
 Zone: 0x434000 - 0x667000
 Miniblock 1:		0x434000		-		0x435000		| RW-
 Miniblock 2:		0x435000		-		0x436000		| RW-
 Miniblock 3:		0x436000		-		0x437000		| RW-
 Miniblock 4:		0x437000		-		0x438000		| RW-
 Miniblock 5:		0x438000		-		0x439000		| RW-
-Block 30 end
+Block 28 end
 
-Block 31 begin
+Block 29 begin
 Zone: 0x43A000 - 0x685000
 Miniblock 1:		0x43A000		-		0x43B000		| RW-
 Miniblock 2:		0x43B000		-		0x43C000		| RW-
@@ -11280,9 +11252,9 @@ Miniblock 26:		0x453000		-		0x454000		| RW-
 Miniblock 27:		0x454000		-		0x455000		| RW-
 Miniblock 28:		0x455000		-		0x456000		| RW-
 Miniblock 29:		0x456000		-		0x457000		| RW-
-Block 31 end
+Block 29 end
 
-Block 32 begin
+Block 30 begin
 Zone: 0x458000 - 0x6A2000
 Miniblock 1:		0x458000		-		0x459000		| RW-
 Miniblock 2:		0x459000		-		0x45A000		| RW-
@@ -11312,9 +11284,9 @@ Miniblock 25:		0x470000		-		0x471000		| RW-
 Miniblock 26:		0x471000		-		0x472000		| RW-
 Miniblock 27:		0x472000		-		0x473000		| RW-
 Miniblock 28:		0x473000		-		0x474000		| RW-
-Block 32 end
+Block 30 end
 
-Block 33 begin
+Block 31 begin
 Zone: 0x475000 - 0x4BC000
 Miniblock 1:		0x475000		-		0x476000		| RW-
 Miniblock 2:		0x476000		-		0x477000		| RW-
@@ -11387,9 +11359,9 @@ Miniblock 68:		0x4B8000		-		0x4B9000		| RW-
 Miniblock 69:		0x4B9000		-		0x4BA000		| RW-
 Miniblock 70:		0x4BA000		-		0x4BB000		| RW-
 Miniblock 71:		0x4BB000		-		0x4BC000		| RW-
-Block 33 end
+Block 31 end
 
-Block 34 begin
+Block 32 begin
 Zone: 0x4BD000 - 0xA2E000
 Miniblock 1:		0x4BD000		-		0x4BE000		| RW-
 Miniblock 2:		0x4BE000		-		0x4BF000		| RW-
@@ -11571,18 +11543,18 @@ Miniblock 177:		0x56D000		-		0x56E000		| RW-
 Miniblock 178:		0x56E000		-		0x56F000		| RW-
 Miniblock 179:		0x56F000		-		0x570000		| RW-
 Miniblock 180:		0x570000		-		0x571000		| RW-
-Block 34 end
+Block 32 end
 
-Block 35 begin
+Block 33 begin
 Zone: 0x572000 - 0x577000
 Miniblock 1:		0x572000		-		0x573000		| RW-
 Miniblock 2:		0x573000		-		0x574000		| RW-
 Miniblock 3:		0x574000		-		0x575000		| RW-
 Miniblock 4:		0x575000		-		0x576000		| RW-
 Miniblock 5:		0x576000		-		0x577000		| RW-
-Block 35 end
+Block 33 end
 
-Block 36 begin
+Block 34 begin
 Zone: 0x578000 - 0x703000
 Miniblock 1:		0x578000		-		0x579000		| RW-
 Miniblock 2:		0x579000		-		0x57A000		| RW-
@@ -11979,9 +11951,9 @@ Miniblock 392:		0x6FF000		-		0x700000		| RW-
 Miniblock 393:		0x700000		-		0x701000		| RW-
 Miniblock 394:		0x701000		-		0x702000		| RW-
 Miniblock 395:		0x702000		-		0x703000		| RW-
-Block 36 end
+Block 34 end
 
-Block 37 begin
+Block 35 begin
 Zone: 0x704000 - 0xE72000
 Miniblock 1:		0x704000		-		0x705000		| RW-
 Miniblock 2:		0x705000		-		0x706000		| RW-
@@ -12089,9 +12061,9 @@ Miniblock 103:		0x76A000		-		0x76B000		| RW-
 Miniblock 104:		0x76B000		-		0x76C000		| RW-
 Miniblock 105:		0x76C000		-		0x76D000		| RW-
 Miniblock 106:		0x76D000		-		0x76E000		| RW-
-Block 37 end
+Block 35 end
 
-Block 38 begin
+Block 36 begin
 Zone: 0x76F000 - 0xEE0000
 Miniblock 1:		0x76F000		-		0x770000		| RW-
 Miniblock 2:		0x770000		-		0x771000		| RW-
@@ -12202,9 +12174,9 @@ Miniblock 106:		0x7D8000		-		0x7D9000		| RW-
 Miniblock 107:		0x7D9000		-		0x7DA000		| RW-
 Miniblock 108:		0x7DA000		-		0x7DB000		| RW-
 Miniblock 109:		0x7DB000		-		0x7DC000		| RW-
-Block 38 end
+Block 36 end
 
-Block 39 begin
+Block 37 begin
 Zone: 0x7DD000 - 0xF16000
 Miniblock 1:		0x7DD000		-		0x7DE000		| RW-
 Miniblock 2:		0x7DE000		-		0x7DF000		| RW-
@@ -12259,9 +12231,9 @@ Miniblock 50:		0x80E000		-		0x80F000		| RW-
 Miniblock 51:		0x80F000		-		0x810000		| RW-
 Miniblock 52:		0x810000		-		0x811000		| RW-
 Miniblock 53:		0x811000		-		0x812000		| RW-
-Block 39 end
+Block 37 end
 
-Block 40 begin
+Block 38 begin
 Zone: 0x813000 - 0xF99000
 Miniblock 1:		0x813000		-		0x814000		| RW-
 Miniblock 2:		0x814000		-		0x815000		| RW-
@@ -12393,9 +12365,9 @@ Miniblock 127:		0x891000		-		0x892000		| RW-
 Miniblock 128:		0x892000		-		0x893000		| RW-
 Miniblock 129:		0x893000		-		0x894000		| RW-
 Miniblock 130:		0x894000		-		0x895000		| RW-
-Block 40 end
+Block 38 end
 
-Block 41 begin
+Block 39 begin
 Zone: 0x896000 - 0x1252000
 Miniblock 1:		0x896000		-		0x897000		| RW-
 Miniblock 2:		0x897000		-		0x898000		| RW-
@@ -13093,9 +13065,9 @@ Miniblock 693:		0xB4A000		-		0xB4B000		| RW-
 Miniblock 694:		0xB4B000		-		0xB4C000		| RW-
 Miniblock 695:		0xB4C000		-		0xB4D000		| RW-
 Miniblock 696:		0xB4D000		-		0xB4E000		| RW-
-Block 41 end
+Block 39 end
 
-Block 42 begin
+Block 40 begin
 Zone: 0xB4F000 - 0x1DA2000
 Miniblock 1:		0xB4F000		-		0xB50000		| RW-
 Miniblock 2:		0xB50000		-		0xB51000		| RW-
@@ -14893,26 +14865,26 @@ Miniblock 1793:		0x124F000		-		0x1250000		| RW-
 Miniblock 1794:		0x1250000		-		0x1251000		| RW-
 Miniblock 1795:		0x1251000		-		0x1252000		| RW-
 Miniblock 1796:		0x1252000		-		0x1253000		| RW-
+Block 40 end
+
+Block 41 begin
+Zone: 0x1255000 - 0x1DA5000
+Miniblock 1:		0x1255000		-		0x1256000		| RW-
+Block 41 end
+
+Block 42 begin
+Zone: 0x1257000 - 0x1DA7000
+Miniblock 1:		0x1257000		-		0x1258000		| RW-
 Block 42 end
 
 Block 43 begin
-Zone: 0x1255000 - 0x1DA5000
-Miniblock 1:		0x1255000		-		0x1256000		| RW-
-Block 43 end
-
-Block 44 begin
-Zone: 0x1257000 - 0x1DA7000
-Miniblock 1:		0x1257000		-		0x1258000		| RW-
-Block 44 end
-
-Block 45 begin
 Zone: 0x125A000 - 0x1DAC000
 Miniblock 1:		0x125A000		-		0x125B000		| RW-
 Miniblock 2:		0x125B000		-		0x125C000		| RW-
 Miniblock 3:		0x125C000		-		0x125D000		| RW-
-Block 45 end
+Block 43 end
 
-Block 46 begin
+Block 44 begin
 Zone: 0x125F000 - 0x1DF1000
 Miniblock 1:		0x125F000		-		0x1260000		| RW-
 Miniblock 2:		0x1260000		-		0x1261000		| RW-
@@ -14981,9 +14953,9 @@ Miniblock 64:		0x129E000		-		0x129F000		| RW-
 Miniblock 65:		0x129F000		-		0x12A0000		| RW-
 Miniblock 66:		0x12A0000		-		0x12A1000		| RW-
 Miniblock 67:		0x12A1000		-		0x12A2000		| RW-
-Block 46 end
+Block 44 end
 
-Block 47 begin
+Block 45 begin
 Zone: 0x12A3000 - 0x1388000
 Miniblock 1:		0x12A3000		-		0x12A4000		| RW-
 Miniblock 2:		0x12A4000		-		0x12A5000		| RW-
@@ -15214,4 +15186,4 @@ Miniblock 226:		0x1384000		-		0x1385000		| RW-
 Miniblock 227:		0x1385000		-		0x1386000		| RW-
 Miniblock 228:		0x1386000		-		0x1387000		| RW-
 Miniblock 229:		0x1387000		-		0x1388000		| RW-
-Block 47 end
+Block 45 end
