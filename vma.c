@@ -158,17 +158,15 @@ int intersection(arena_t *arena, block_t *block)
 	int contor = 0;
 	while(curent) {
 		if (dimensiune >= limita_stanga && dimensiune <= limita_dreapta) {
-			if (block->start_address < limita_stanga)
-				return -1;
-			return contor;
+			if (block->start_address >= limita_stanga)
+				return contor;
 		}
 		limita_stanga = ((block_t *)curent->data)->start_address + ((block_t *)curent->data)->size;
 		if (curent->next == NULL) {
 			limita_dreapta = arena->arena_size;
 			if (dimensiune >= limita_stanga && dimensiune <= limita_dreapta) {
-				if (block->start_address < limita_stanga)
-					return -1;
-				return contor + 1;
+				if (block->start_address >= limita_stanga)
+					return contor + 1;
 			}
 		} else
 			limita_dreapta = ((block_t *)curent->next->data)->start_address;
@@ -202,7 +200,7 @@ void merger(block_t* first, block_t* last)
 
 void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 {
-	if (address > arena->arena_size) {
+	if (address >= arena->arena_size) {
 		printf("The allocated address is outside the size of arena\n");
 		return;
 	}
@@ -355,7 +353,7 @@ void free_block(arena_t *arena, const uint64_t address)
 	}
 	block_t *first_block = malloc(sizeof(block_t));
 	first_block->start_address = block->start_address;
-	first_block->size = nxt_add - counter;
+	first_block->size = nxt_add - counter - first_block->start_address;
 	first_block->miniblock_list = create_list(sizeof(miniblock_t));
 	temp = curr->prev;
 	while (temp) {
