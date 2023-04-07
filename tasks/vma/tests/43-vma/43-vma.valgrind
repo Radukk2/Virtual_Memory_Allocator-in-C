@@ -1,0 +1,15 @@
+==5161== Memcheck, a memory error detector
+==5161== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5161== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==5161== Command: /home/student/Desktop/SDA/vma
+==5161== Parent PID: 5160
+==5161== 
+==5161== 
+==5161== HEAP SUMMARY:
+==5161==     in use at exit: 0 bytes in 0 blocks
+==5161==   total heap usage: 12 allocs, 12 frees, 8,417 bytes allocated
+==5161== 
+==5161== All heap blocks were freed -- no leaks are possible
+==5161== 
+==5161== For lists of detected and suppressed errors, rerun with: -s
+==5161== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

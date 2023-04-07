@@ -1,16 +1,24 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
+# Copyright 2020 Darius Neatu <neatudarius@gmail.com>
 
-all: main
+# compiler setup
+CC=gcc
+CFLAGS=-Wall -Wextra -std=c99
 
-main: main.o vma.o
-	$(CC) $(CFLAGS) $^ -o $@
+# define targets
+TARGETS=vma
 
-main.o: main.c vma.h
-	$(CC) $(CFLAGS) -c $< -o $@
+build: $(TARGETS)
 
-vma.o: vma.c vma.h
-	$(CC) $(CFLAGS) -c $< -o $@
+run_vma:
+	./vma
+
+vma: main.c vma.c
+	$(CC) $(CFLAGS) main.c vma.c -o vma
+
+pack:
+	zip -FSr 313CA_DraganDragos_Ovidiu_Tema1.zip README Makefile *.c *.h
 
 clean:
-	rm -f main *.o
+	rm -f $(TARGETS)
+
+.PHONY: pack clean

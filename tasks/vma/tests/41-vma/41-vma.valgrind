@@ -1,0 +1,20 @@
+==5153== Memcheck, a memory error detector
+==5153== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5153== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==5153== Command: /home/student/Desktop/SDA/vma
+==5153== Parent PID: 5152
+==5153== 
+==5153== Invalid write of size 1
+==5153==    at 0x10AD15: write (in /home/student/Desktop/SDA/vma)
+==5153==    by 0x10960C: main (in /home/student/Desktop/SDA/vma)
+==5153==  Address 0x4ab1003 is 3 bytes inside an unallocated block of size 3,796,960 in arena "client"
+==5153== 
+==5153== 
+==5153== HEAP SUMMARY:
+==5153==     in use at exit: 0 bytes in 0 blocks
+==5153==   total heap usage: 5,421 allocs, 5,421 frees, 191,925 bytes allocated
+==5153== 
+==5153== All heap blocks were freed -- no leaks are possible
+==5153== 
+==5153== For lists of detected and suppressed errors, rerun with: -s
+==5153== ERROR SUMMARY: 76 errors from 1 contexts (suppressed: 0 from 0)
