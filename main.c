@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    char comanda[30], string[30];
+    char comanda[30], string[30], c;
     long long dim, add;
     while(1){
         arena_t *new_arena;
@@ -42,7 +42,7 @@ int main(void)
         }
         if (strcmp(comanda, "WRITE") == 0) {
             scanf("%lld", &add);
-            scanf("%lld ", &dim);
+            scanf("%lld%c", &dim, &c);
             uint8_t *data = malloc( dim * sizeof(char));
             int i = 0;
             while(i < dim) {

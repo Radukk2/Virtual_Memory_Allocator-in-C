@@ -7,5 +7,4 @@ Block 1 begin
 Zone: 0xA - 0x6E
 Miniblock 1:		0xA		-		0x6E		| RW-
 Block 1 end
-MAP
-
+PMAP

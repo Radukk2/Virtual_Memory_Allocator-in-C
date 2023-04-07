@@ -70,7 +70,7 @@ node* remove_node(list_t* list, unsigned int poz)
 		return 0;
 	if (poz == 0 && list->size == 1) {
 		node* curent = list->head;
-		list->head = curent->next;
+		list->head = NULL;
 		curent->prev = NULL;
 		list->size--;
 		return curent;
@@ -498,7 +498,7 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 		int start = ((miniblock_t *)curr2->data)->start_address;
 		int end = start + ((miniblock_t *)curr2->data)->size;
 		if (start < l_max)
-			((miniblock_t *)curr2->data)->rw_buffer = realloc(((miniblock_t *)curr2->data)->rw_buffer, ((miniblock_t *)curr2->data)->size);
+			((miniblock_t *)curr2->data)->rw_buffer = realloc(((miniblock_t *)curr2->data)->rw_buffer, ((miniblock_t *)curr2->data)->size + 1);
 		else 
 			break;
 		curr2 = curr2->next;
