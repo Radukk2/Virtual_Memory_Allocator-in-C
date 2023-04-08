@@ -1,20 +1,20 @@
-==5857== Memcheck, a memory error detector
-==5857== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==5857== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==5857== Command: /home/student/Desktop/SDA/vma
-==5857== Parent PID: 5856
-==5857== 
-==5857== Invalid write of size 1
-==5857==    at 0x10AD6B: write (in /home/student/Desktop/SDA/vma)
-==5857==    by 0x109613: main (in /home/student/Desktop/SDA/vma)
-==5857==  Address 0x4a7a6ae is 334 bytes inside an unallocated block of size 4,020,864 in arena "client"
-==5857== 
-==5857== 
-==5857== HEAP SUMMARY:
-==5857==     in use at exit: 0 bytes in 0 blocks
-==5857==   total heap usage: 3,175 allocs, 3,175 frees, 101,119 bytes allocated
-==5857== 
-==5857== All heap blocks were freed -- no leaks are possible
-==5857== 
-==5857== For lists of detected and suppressed errors, rerun with: -s
-==5857== ERROR SUMMARY: 124 errors from 1 contexts (suppressed: 0 from 0)
+==7099== Memcheck, a memory error detector
+==7099== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7099== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==7099== Command: /home/student/Desktop/SDA/vma
+==7099== Parent PID: 7098
+==7099== 
+==7099== Invalid write of size 1
+==7099==    at 0x10AD83: write (in /home/student/Desktop/SDA/vma)
+==7099==    by 0x109613: main (in /home/student/Desktop/SDA/vma)
+==7099==  Address 0x4a7a6ae is 334 bytes inside an unallocated block of size 4,020,864 in arena "client"
+==7099== 
+==7099== 
+==7099== HEAP SUMMARY:
+==7099==     in use at exit: 0 bytes in 0 blocks
+==7099==   total heap usage: 3,175 allocs, 3,175 frees, 101,119 bytes allocated
+==7099== 
+==7099== All heap blocks were freed -- no leaks are possible
+==7099== 
+==7099== For lists of detected and suppressed errors, rerun with: -s
+==7099== ERROR SUMMARY: 124 errors from 1 contexts (suppressed: 0 from 0)

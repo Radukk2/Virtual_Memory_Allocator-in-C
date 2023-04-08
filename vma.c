@@ -332,6 +332,7 @@ void free_block(arena_t *arena, const uint64_t address)
 	}
 	if (!curr->prev) {
 		block->start_address += counter;
+		block->size -= counter;
 		node * nod = remove_node((list_t *)block->miniblock_list, pos);
 		free(((miniblock_t *)nod->data)->rw_buffer);
 		free(nod->data);

@@ -9,6 +9,7 @@ int main(void)
 {
     char comanda[30], string[30], c;
     long long dim, add;
+    // freopen ("ceva.txt", "wt", stdout);
     while(1){
         arena_t *new_arena;
         int invalid_command = 0;
