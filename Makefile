@@ -1,4 +1,4 @@
-# Copyright 2020 Darius Neatu <neatudarius@gmail.com>
+# Copyright 2023 Radu Constantinescu <raduic2003@gmail.com>
 
 # compiler setup
 CC=gcc
@@ -16,7 +16,7 @@ vma: main.c vma.c
 	$(CC) $(CFLAGS) main.c vma.c -o vma
 
 pack:
-	zip -FSr 313CA_DraganDragos_Ovidiu_Tema1.zip README Makefile *.c *.h
+	zip -FSr 313CA_ConstantinescuRadu_Ioan_Tema1.zip README Makefile *.c *.h
 
 clean:
 	rm -f $(TARGETS)
