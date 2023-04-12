@@ -478,7 +478,8 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 	printf("\n");
 }
 
-void write(arena_t *arena, uint64_t address, const uint64_t size, int8_t *data)
+void write(arena_t *arena, const uint64_t address, const uint64_t size
+, int8_t *data)
 {
 	if (!block_finder(arena, address)) {
 		printf("Invalid address for write.\n");
